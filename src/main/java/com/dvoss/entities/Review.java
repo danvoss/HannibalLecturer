@@ -19,20 +19,19 @@ public class Review {
     String text;
 
     @Column(nullable = false)
-    int lecturerId;
-
-    @Column(nullable = false)
     boolean isGood;
+
+    @ManyToOne
+    Lecturer lecturer;
 
     public Review() {
     }
 
-    public Review(int id, String author, String text, int lecturerId, boolean isGood) {
-        this.id = id;
+    public Review(String author, String text, boolean isGood, Lecturer lecturer) {
         this.author = author;
         this.text = text;
-        this.lecturerId = lecturerId;
         this.isGood = isGood;
+        this.lecturer = lecturer;
     }
 
     public int getId() {
@@ -59,19 +58,19 @@ public class Review {
         this.text = text;
     }
 
-    public int getLecturerId() {
-        return lecturerId;
-    }
-
-    public void setLecturerId(int lecturerId) {
-        this.lecturerId = lecturerId;
-    }
-
     public boolean isGood() {
         return isGood;
     }
 
     public void setGood(boolean good) {
         isGood = good;
+    }
+
+    public Lecturer getLecturer() {
+        return lecturer;
+    }
+
+    public void setLecturer(Lecturer lecturer) {
+        this.lecturer = lecturer;
     }
 }

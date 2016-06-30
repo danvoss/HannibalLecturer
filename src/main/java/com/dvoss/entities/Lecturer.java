@@ -21,18 +21,13 @@ public class Lecturer {
     @Column(nullable = false)
     String image;
 
-    @ManyToOne
-    Review review;
-
     public Lecturer() {
     }
 
-    public Lecturer(int id, String name, String topic, String image, Review review) {
-        this.id = id;
+    public Lecturer(String name, String topic, String image) {
         this.name = name;
         this.topic = topic;
         this.image = image;
-        this.review = review;
     }
 
     public int getId() {
@@ -65,13 +60,5 @@ public class Lecturer {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public Review getReview() {
-        return review;
-    }
-
-    public void setReview(Review review) {
-        this.review = review;
     }
 }

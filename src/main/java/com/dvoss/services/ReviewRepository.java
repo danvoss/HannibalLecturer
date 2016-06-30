@@ -1,5 +1,6 @@
 package com.dvoss.services;
 
+import com.dvoss.entities.Lecturer;
 import com.dvoss.entities.Review;
 import org.springframework.data.repository.CrudRepository;
 
@@ -7,4 +8,5 @@ import org.springframework.data.repository.CrudRepository;
  * Created by Dan on 6/30/16.
  */
 public interface ReviewRepository extends CrudRepository<Review, Integer> {
+    public Iterable<Review> findByLecturer(Lecturer lecturer);
 }
