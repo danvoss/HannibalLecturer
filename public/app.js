@@ -16,10 +16,12 @@ var hanLec = {
   events: function() {
 
     $('.create-rating, .ratings').on('click',"input[name='back-to-lecturers']",function() {
+    // *** remove repeating buttons below:
+      $(this).closest("input[name='back-to-lecturers']").remove();
       hanLec.getLecturers();
     })
 
-    $('.lecturers').on('click',"input[name='back-to-lecturers']",function() {
+    $('.lecturers').on('click',"input   [name='back-to-lecturers']",function() {
       hanLec.getLecturers();
     })
     $('input[name="create-lecturer"]').on('click', function(event) {
@@ -38,6 +40,7 @@ var hanLec = {
       console.log(lecturerId);
       $('.create-rating').removeClass('hidden').siblings().addClass('hidden');
       $('.create-rating').append("<span class='hidden'>" + lecturerId + "</span>");
+      console.log("adding button on image lcikc");
       $('.create-rating').append('<input type="button" name="back-to-lecturers" value="Back To Lecturers">')
     });
 
@@ -124,8 +127,6 @@ var hanLec = {
       success: function(data) {
         console.log(data);
         // ***
-        //hanLec.getLecturers();
-        // above works, but show ratings instead. how to grab id?:
         var id = $('.create-rating').find('span.hidden').last().text();
         hanLec.getRatings(id);
 
@@ -168,6 +169,6 @@ var hanLec = {
     });
     $('.ratings').siblings().addClass('hidden');
     $('.ratings').removeClass('hidden');
-    $('.ratings').append('<input type="button" name="back-to-lecturers" value="Back To Lecturers">')
+    //$('.ratings').append('<input type="button" name="back-to-lecturers" value="Back To Lecturers">')
   }
 }
