@@ -79,6 +79,9 @@ var hanLec = {
       data: lecturer,
       success: function(createdLecturer) {
         console.log("CREATED LECTURER", createdLecturer);
+        // ***
+        hanLec.getLecturers();
+
       },
       error: function(err) {
         console.log("not workee", err);
@@ -120,6 +123,16 @@ var hanLec = {
       data: rating,
       success: function(data) {
         console.log(data);
+        // ***
+        //hanLec.getLecturers();
+        // above works, but show ratings instead. how to grab id?:
+        var id = $('.create-rating').find('span.hidden').last().text();
+        hanLec.getRatings(id);
+
+
+
+
+
       },
       error: function(data) {
         console.log("ERR",data);
