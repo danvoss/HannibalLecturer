@@ -28,9 +28,8 @@ public class HannibalLecturerRestController {
 
 
     @RequestMapping(path = "/reviews", method = RequestMethod.GET)
-    public Iterable<Review> reviews() {
-        // ?? grab lecturer id
-        Lecturer lecturer = null;
+    public Iterable<Review> reviews(int lecturerId) {
+        Lecturer lecturer = lecturers.findOne(lecturerId);
         return reviews.findByLecturer(lecturer);
     }
 }
