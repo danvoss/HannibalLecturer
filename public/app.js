@@ -16,7 +16,7 @@ var hanLec = {
   events: function() {
 
     $('.create-rating, .ratings').on('click',"input[name='back-to-lecturers']",function() {
-    // *** remove repeating buttons below:
+
       $(this).closest("input[name='back-to-lecturers']").remove();
       hanLec.getLecturers();
     })

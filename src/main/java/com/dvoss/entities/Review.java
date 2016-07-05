@@ -18,6 +18,10 @@ public class Review {
     @Column(nullable = false)
     String text;
 
+//    (if this var was really necessary to front end -- see getter below)
+//    @Transient
+//    int lecturerId;
+
     @Column(nullable = false)
     boolean isGood;
 
@@ -58,11 +62,11 @@ public class Review {
         this.text = text;
     }
 
-    public boolean isGood() {
+    public boolean getIsGood() {
         return isGood;
     }
 
-    public void setGood(boolean good) {
+    public void setIsGood(boolean good) {
         isGood = good;
     }
 
@@ -73,4 +77,7 @@ public class Review {
     public void setLecturer(Lecturer lecturer) {
         this.lecturer = lecturer;
     }
+
+    // public void getLecturerId() {
+    //      return lecturer.id;
 }
